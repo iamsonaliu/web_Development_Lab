@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Form Validator</title>
+</head>
+<body>
+    <form action="" onsubmit="return formValidator()" onreset="resetErrors()">
+        <fieldset>
+            <label for="nm">NAME</label>
+            <input type="text" name="name" id="nm"> <br>
+            <span id="name-error"></span> <br>
+            <label for="em">EMAIL</label>
+            <input type="text" name="email" id="em"> <br>
+            <span id="email-error"></span> <br>
+            <label for="pswd">PASSWORD</label>
+            <input type="password" name="password" id="pswd"> <br>
+            <span id="password-error"></span> <br>
+            <input type="submit" value="Validate form" id="submit-btn">
+            <input type="reset" value="Reset form" id="reset-btn">
+        </fieldset>
+    </form>
+    <script>
+        function formValidator(){
+            const nameInput=document.getElementById("nm");
+            const emailInput=document.getElementById("em");
+            const pswrdInput=document.getElementById("pswd");
+
+            const nameErr=document.getElementById("name-error");
+            const emailErr=document.getElementById("email-error");
+            const passwordErr=document.getElementById("password-error");
+
+            nameErr.textContent="";
+            emailErr.textContent="";
+            passwordErr.textContent="";
+
+            let isValid=true;
+            if(nameInput.value==="" || (/\d/).test(nameInput.value)){
+                nameErr.textContent="Please enter a valid name without numbers.";
+                isValid=false;  
+            }  
+            if(emailInput.value==="" || !emailInput.value.includes("@")||!emailInput.value.includes(".")){
+                emailErr.textContent="Please enter a valid email id";
+                isValid=false;
+            }
+            if(pswrdInput.value===""  || pswrdInput.value.length<8){
+                passwordErr.textContent="Password must be at least 8 characters long.";
+                isValid=false;
+            }
+            if(isValid){
+                alert("Form is valid! Submitting...");
+            }
+            else{
+                alert("Form is invalid! Please correct the errors and try again.");
+            }
+            return isValid;
+        }
+        
+        function resetErrors(){
+            document.getElementById("name-error").textContent="";
+            document.getElementById("email-error").textContent="";
+            document.getElementById("password-error").textContent="";
+        }
+    </script>
+</body>
+</html>

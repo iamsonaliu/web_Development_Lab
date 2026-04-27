@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Self Modifying Page</title>
+
+<style id="dynamicStyle">
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 100px;
+        background: #f0f0f0;
+        color: #333;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 id="title">Self-Modifying Web Page</h1>
+<p id="desc">This page changes itself every minute </p>
+
+<div id="container"></div>
+
+<script>
+let state = 0;
+
+function modifyPage() {
+    const title = document.getElementById("title");
+    const desc = document.getElementById("desc");
+    const container = document.getElementById("container");
+    const styleTag = document.getElementById("dynamicStyle");
+
+    state++;
+
+    // Cycle through 3 self-modifications
+    if (state % 3 === 1) {
+        // Modify content
+        title.innerText = "Night Mode Activated";
+        desc.innerText = "The page transformed itself!";
+        document.body.style.background = "#111";
+        document.body.style.color = "#fff";
+
+    } else if (state % 3 === 2) {
+        // Modify layout + add elements
+        title.innerText = "Dynamic Elements Added";
+        desc.innerText = "New elements appeared automatically.";
+
+        const box = document.createElement("div");
+        box.innerText = "I was created by the page!";
+        box.style.padding = "20px";
+        box.style.margin = "20px auto";
+        box.style.width = "200px";
+        box.style.background = "orange";
+        box.style.borderRadius = "10px";
+
+        container.innerHTML = "";
+        container.appendChild(box);
+
+    } else {
+        // Modify CSS itself (true self-modifying)
+        title.innerText = "Style Mutated";
+        desc.innerText = "The CSS rules changed themselves.";
+
+        styleTag.innerHTML = `
+            body {
+                font-family: 'Courier New', monospace;
+                background: linear-gradient(45deg, purple, blue);
+                color: white;
+                text-align: center;
+                padding-top: 120px;
+                transition: all 1s ease;
+            }
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 3px;
+            }
+        `;
+        container.innerHTML = "";
+    }
+}
+
+// Run every minute (60000 ms)
+setInterval(modifyPage, 6000);
+</script>
+
+</body>
+</html>

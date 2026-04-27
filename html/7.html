@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>CUSTOMER PROFILE</h2>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <label for="nm">NAME : </label>
+            <input type="text" name="name" id="nm" > <br><br>
+            <label for="address"> Address : </label>
+            <input type="text" name="address" id="address"> <br><br>
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age"> <br><br>
+            <label for="gender">Gender</label>
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender"> Female
+            <br><br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Additional Information</legend>
+            <fieldset>
+                <legend>Booking Details</legend>
+                <label for="rt">Room Type:</label>
+                <input type="radio" name="rt"> A/C
+                <input type="radio" name="rt"> Non-A/C
+                <input type="radio" name="rt"> Deluxe <br><br>
+                <label for="checkin"> Check-In Date:</label>
+                <input type="date" name="checkin" id="checkin"> <br><br>
+                <label for="checkout"> Check-Out Date:</label>
+                <input type="date" name="checkout" id="checkout"> <br><br>
+            </fieldset>
+            <fieldset>
+                <legend>Contact Details</legend>
+                <label for="email"> Email:</label>
+                <input type="email" name="email" id="email"> <br><br>
+                <label for="phone"> Phone Number:</label>
+                <input type="tel" name="phone" id="phone"> <br><br>
+            </fieldset
+            <br><br>
+            <fieldset>
+                <label for="payment"> Type of Payment</label> <br>
+                <select name="" id="">
+                    <option value="select">select</option>
+                    <option name="pay">Cash</option>
+                    <option name="pay"> Credit/Debit card</option>
+                    <option name="pay"> Coupons </option>
+                </select>
+                
+            </fieldset>
+        <br>
+        <input type="submit" value="submit form">
+        <input type="reset" value="reset form">
+        </fieldset>
+    </form>
+</body>
+</html>

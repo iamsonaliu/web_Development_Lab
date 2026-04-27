@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Validator</title>
+</head>
+<body>
+    <h1>Country and Capital Validator</h1>
+    <div>
+        <select id="country">
+        <option value="">Select a country</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="France">France</option>
+        <option value="Japan">Japan</option>
+        <option value="Australia">Australia</option>
+    </select>
+
+    <select id="capital">
+        <option value="">Select it's capital</option>
+        <option value="New Delhi">New Delhi</option>
+        <option value="Washington, D.C.">Washington, D.C.</option>
+        <option value="Canberra">Canberra</option>
+        <option value="Paris">Paris</option>
+        <option value="Tokyo">Tokyo</option>
+    </select>
+    <br><br>
+    </div>
+    <button onclick="validateCapital()">Validate</button>
+    <p id="info"></p>
+    <script>
+        const countrycapitals={
+            "India":"New Delhi",
+            "USA":"Washington, D.C.",
+            "France":"Paris",
+            "Japan":"Tokyo",
+            "Australia":"Canberra"
+        };
+        function validateCapital(){
+            const country=document.getElementById("country").value;
+            const capital=document.getElementById("capital").value;
+            if(countrycapitals[country] && countrycapitals[country].toLowerCase()===capital.toLowerCase()){
+                info.textContent="Correct! The capital of " + country + " is indeed " + capital + ".";
+            }
+            else{
+                info.textContent="Incorrect! The capital of " + country + " is " + countrycapitals[country] + ".";
+            }
+        }
+    </script>
+</body>
+</html>

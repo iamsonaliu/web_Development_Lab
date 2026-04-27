@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Position Properties Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 2000px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            padding: 10px;
+            margin: 20px;
+            color: white;
+        }
+
+        /* Static */
+        .static {
+            position: static;
+            background-color: gray;
+        }
+
+        /* Relative */
+        .relative {
+            position: relative;
+            top: 20px;
+            left: 40px;
+            background-color: blue;
+        }
+
+        /* Absolute */
+        .parent {
+            position: relative;
+            border: 2px solid black;
+            height: 200px;
+            margin: 20px;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            background-color: green;
+        }
+
+        .fixed {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: red;
+        }
+
+        /* Sticky */
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>CSS Position Properties</h2>
+
+    <div class="box static">
+        Static Position
+    </div>
+
+    <div class="box relative">
+        Relative Position
+    </div>
+
+    <div class="parent">
+        Parent (Relative)
+        <div class="box absolute">
+            Absolute Position
+        </div>
+    </div>
+
+    <div class="box sticky">
+        Sticky Position (Scroll down)
+    </div>
+
+    <div class="box fixed">
+        Fixed Position
+    </div>
+
+</body>
+</html>

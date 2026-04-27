@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Map Example</title>
+</head>
+<body>
+
+    <h2>Image Map with Hotspots</h2>
+    <p>Click on different parts of the image to see related information.</p>
+
+    <!-- Image with Image Map -->
+    <img src="./campus.jpeg" alt="Campus Map" usemap="#campusmap" width="400" height="300">
+
+<map name="campusmap">
+    <area target="_self" alt="library" title="library" href="" coords="247,112,275,138" shape="rect">
+    <area target="" alt="canteen" title="canteen" href="" coords="319,178,334,170" shape="rect">
+    <area target="" alt="hostel" title="hostel" href="" coords="315,188,336,224" shape="rect">
+</map>
+
+    <hr>
+
+
+    <h3 id="library">📚 Library</h3>
+    <p>The library contains books, journals, and digital resources for students.</p>
+
+    <h3 id="canteen">🍽️ Canteen</h3>
+    <p>The canteen provides snacks, meals, and beverages.</p>
+
+    <h3 id="hostel">🏠 Hostel</h3>
+    <p>The hostel provides accommodation facilities for students.</p>
+
+</body>
+</html>

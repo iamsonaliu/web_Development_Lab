@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Day Finder</title>
+    <style>
+        #container{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <label for="dt">ENTER YOUR BIRTHDATE</label> <br>
+        <p>enter in (dd/mm/yyyy) format</p> <br>
+        <input id="dt" type="text"> <br> <br>
+        <button onclick="findDay()">FIND DAY</button> <br>
+        <span id="day-content"></span>
+        <br>
+    </div>
+    <script>
+        function findDay(){
+            const input=document.getElementById('dt').value;
+            if(!input){
+                alert('Please enter your birthdate');
+                return;
+            }
+            const parts=input.split('/');
+            const date=new Date(parts[2],parts[1]-1,parts[0]);
+            const day=date.getDay();
+            const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            document.getElementById('day-content').innerHTML=`Your birth day is ${days[day]}`;
+        }
+    </script>
+</body>
+</html>

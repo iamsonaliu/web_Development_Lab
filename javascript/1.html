@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <h1>Credit Card Validator</h1> <br>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber"> <br> <br>
+            <label for="type_card"> Card Company </label>
+            <select name="type_card" id="type_card">
+                <option value="visa">Visa</option>
+                <option value="mastercard">MasterCard</option>
+                <option value="amex">American Express</option>
+            </select>
+            <br>
+            <br>
+            <button type="submit">Validate</button>
+            <br>
+            <span id="error-response"></span>
+            <br>
+        </fieldset>
+        <script>
+            document.querySelector('form').addEventListener('submit',function(event){
+                event.preventDefault();
+               const cardnum=document.getElementById('cardNumber').value;
+               const cardT=document.getElementById('type_card').value;
+               const err_text=document.getElementById('error-response');
+               err_text.textContent="";
+               let isValid=0;
+               const visaPattern = /^4\d{12}(\d{3})?$/;      
+const MCPattern = /^5[1-5]\d{14}$/;          
+const AEPattern = /^3[47]\d{13}$/;          
+               if(cardT==="visa"){
+                    isValid=visaPattern.test(cardnum);
+               }
+               else if(cardT==="mastercard"){
+                    isValid=AEPattern.test(cardnum);
+               }
+               else{
+                    isValid=MCPattern.test(cardnum);
+               }
+               if(isValid){
+                    err_text.textContent="Valid Credit Card Number";
+               }
+               else{
+                    err_text.textContent="Invalid Credit Card Number";
+               }
+            });
+        </script>
+    </form>
+</body>
+</html>
